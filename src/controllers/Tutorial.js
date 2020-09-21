@@ -4,7 +4,7 @@ function Tutorial() {
   return (
     <div className="Tutorial">
       <header className="Tutorial-header">
-        <div class="test">
+        <div>
           <p>meet me by grand and State at three am.</p>
         </div>
       </header>

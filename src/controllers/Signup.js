@@ -1,15 +1,15 @@
 import React from 'react';
-import '../css/Login.css';
+import '../css/Signup.css';
 import { NavLink } from 'react-router-dom';
 
 
-class Login extends React.Component{
+class Signup extends React.Component{
   render(){
   return (
-      <div className="Login">
+      <div className="Signup">
           <div>
           <form onSubmit={this.handleSubmit}>
-            <div className="login-field">
+            <div className="Signup-field">
               <label>Username</label>
               <br/>
               <input
@@ -25,7 +25,7 @@ class Login extends React.Component{
                 />
                 <br/>
               <button type="submit">
-              Login
+              Signup
               </button>
             </div>
             <br/>
@@ -43,4 +43,4 @@ class Login extends React.Component{
   }
 }
 
-export default Login;
+export default Signup;

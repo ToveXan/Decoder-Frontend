@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 
 class MainMenu extends React.Component {
   constructor(){
@@ -28,6 +28,27 @@ class MainMenu extends React.Component {
       <div className="MainMenu">
           <div>
             <p>this is {this.grabUser()}'s menu</p>
+            <p />
+            <NavLink to="/">
+            Title Menu
+            </NavLink>
+            <p />
+            <NavLink to="/tutorial">
+            Tutorial
+            </NavLink>
+            <p />
+            <NavLink to="/case-one">
+            Case One
+            </NavLink>
+            <p />
+            <NavLink to="/case-two">
+            Case Two
+            </NavLink>
+            <p />
+            <NavLink to="/case-three">
+            Case Three
+            </NavLink>
+
           </div>
       </div>
     );

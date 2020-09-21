@@ -1,23 +1,31 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import './fonts.css';
-import { Route, Switch } from 'react-router-dom';
 import MainMenu from './controllers/MainMenu';
 import Login from './controllers/Login';
+import Signup from './controllers/Signup';
+import Title from './controllers/Title';
+import CaseFileOne from './controllers/CaseFileOne';
+import CaseFileTwo from './controllers/CaseFileTwo';
+import CaseFileThree from './controllers/CaseFileThree';
+import Tutorial from './controllers/Tutorial';
+
 
 class App extends React.Component{
   render(){
   return (
       <div className="App">
-        <header className="App-header">
-          <div>
-            <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/main" component={MainMenu} />
-            </Switch>
-            
-          </div>
-        </header>
+        <Switch>
+            <Route exact path="/" component={Title} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/main" component={MainMenu} />
+            <Route exact path="/tutorial" component={Tutorial} />
+            <Route exact path="/case-one" component={CaseFileOne} />
+            <Route exact path="/case-two" component={CaseFileTwo} />
+            <Route exact path="/case-three" component={CaseFileThree} />
+        </Switch>
       </div>
     );
   }
