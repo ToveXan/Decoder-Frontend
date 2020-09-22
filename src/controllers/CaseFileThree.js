@@ -5,7 +5,11 @@ import '../css/CaseFileThree.css';
 class CaseFileThree extends React.Component {
   render() {
     return (
-      <div className="CaseFileTwo">
+      <div className="CaseFileThree">
+        <header>
+        <h1>Case File Three</h1>
+            <p>username</p>
+        </header>
         <div className="canvas1">
           <Stage width={500} height={500}>
             <Layer>
@@ -19,8 +23,11 @@ class CaseFileThree extends React.Component {
             </Layer>
           </Stage>
         </div>
-        <header className="CaseFileTwo-header">
+        <header className="CaseFileThree-header">
           <div className="case-two-full">
+          <label>Answer</label>
+            <p />
+            <input type="text"/><button>Submit</button>
             <p>this is case file two</p>
           </div>
         </header>
