@@ -5,10 +5,11 @@ import '../css/CaseFileOne.css';
 
 
 export default function CaseFileOne() {
-  
+  const [answer, setAnswer] = useState("rendezvous at midnight by the river");
   const [image, setImage] = useState(new window.Image());
-  let [lines, setLines] = React.useState([]);
+  const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
+  const [userAnswer, setUserAnswer] = useState('');
 
   useEffect(() => {
     const img = new window.Image();
@@ -45,7 +46,15 @@ export default function CaseFileOne() {
 
   const deleteLine = (e) => {
     console.log(lines)
-    
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(userAnswer !== answer){
+      console.log("That's not quite right....")
+    }else{
+      console.log("Now you got it!")
+    }
   }
 
   const pigpenInCanvas = () => {
@@ -78,7 +87,6 @@ export default function CaseFileOne() {
       />
     </Layer>
   }
-  
     return (
       <div className="CaseFileOne">
         <div className="headertop">
@@ -86,7 +94,9 @@ export default function CaseFileOne() {
             <h1>Case File One</h1>
             <p>username</p>
           </header>
-          <p>< i className="flaticon-coffee"></i></p>
+          <div className="coffee-div">
+            <p><i className="flaticon-coffee-cup" /><i className="flaticon-coffee-cup" /><i className="flaticon-coffee-cup" /></p>
+          </div>
         </div>
         <div className="canvas1">
         <Stage 
@@ -116,11 +126,17 @@ export default function CaseFileOne() {
         <button onClick={deleteLine}>Reset</button>
         </div>
           <div>
+            <p />
+            <p className="test">rendezvous at midnight by the river</p>
+            <p />
+            <form onSubmit={handleSubmit}>
             <label>Answer</label>
             <p />
-            <input type="text"/><button>Submit</button>
-            <p className="test">testing</p>
-            <p>app carried down the font styling for pigpen</p>
+            <input 
+              type="text" 
+              onChange={e => setUserAnswer(e.target.value)} />
+            <button type="submit">Submit</button>
+            </form>
           </div>
       </div>
     );

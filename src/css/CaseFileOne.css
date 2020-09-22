@@ -2,3 +2,13 @@
   border: 2px solidg grey;
 }
 
+[class^="flaticon-coffee-cup"]:before, [class*=" flaticon-coffee-cup"]:before, [class^=" flaticon-coffee-cup"]:after, [class*=" flaticon-coffee-cup"]:after {
+
+  font-size: 50px;
+  
+  }
+[class^="flaticon-coffee"]:before, [class*=" flaticon-coffee"]:before, [class^=" flaticon-coffee"]:after, [class*=" flaticon-coffee"]:after {
+
+  font-size: 50px;
+    
+}
