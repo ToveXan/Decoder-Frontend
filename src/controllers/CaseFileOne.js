@@ -50,13 +50,19 @@ export default function CaseFileOne() {
 
   const pigpenInCanvas = () => {
     return <Layer>
+      <Text 
+        x={5}
+        y={420}
+        fontSize={20}
+        text="click the text below to see the transition"
+        />
         <Text 
         x={5}
-        y={430}
+        y={450}
         fontSize={20}
         draggable
         fontFamily={"pigpen_cipherregular"}
-        text="abcdefghijklmnopqrstuvwxyz"
+        text="test"
         />
       </Layer>
   }
