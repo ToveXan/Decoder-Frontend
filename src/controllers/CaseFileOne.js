@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
-
-import { Stage, Layer, Rect, Text, Image, Line } from 'react-konva';
+import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import '../css/CaseFileOne.css';
+import LoadCoffee from './LoadCoffee'
 
 
 export default function CaseFileOne() {
-  const [answer, setAnswer] = useState("rendezvous at midnight by the river");
+  const [answer] = useState("rendezvous at midnight by the river");
   const [image, setImage] = useState(new window.Image());
   const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
   const [userAnswer, setUserAnswer] = useState('');
+  const [timer, setTimer] = useState(0)
+// const [x, setX] = useState(5)
+//  const [y, setY] = useState(450)
+  const defaults = []
 
   useEffect(() => {
     const img = new window.Image();
@@ -45,36 +49,46 @@ export default function CaseFileOne() {
   };
 
   const deleteLine = (e) => {
-    console.log(lines)
+    setLines(defaults)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(userAnswer !== answer){
-      console.log("That's not quite right....")
-    }else{
+    if(userAnswer === answer){
       console.log("Now you got it!")
+      setTimer(timer + 0)
+    }else if (userAnswer !== answer) {
+      console.log(userAnswer)
+      console.log("That's not quite right....")
+      setTimer(timer + 1)
+    } else {
+      console.log("somethin' aint right")
     }
   }
+  // const handleDragEnd = (e) => {
+  //   setX(e.target.x())
+  //   setY(e.target.y())
+  // }
 
-  const pigpenInCanvas = () => {
-    return <Layer>
-      <Text 
-        x={5}
-        y={420}
-        fontSize={20}
-        text="click the text below to see the transition"
-        />
-        <Text 
-        x={5}
-        y={450}
-        fontSize={20}
-        draggable
-        fontFamily={"pigpen_cipherregular"}
-        text="test"
-        />
-      </Layer>
-  }
+  // const pigpenInCanvas = () => {
+  //   return <Layer>
+  //     <Text 
+  //       x={5}
+  //       y={420}
+  //       fontSize={20}
+  //       text="click the text below to see the transition"
+  //       />
+  //       <Text 
+  //       x={x}
+  //       y={y}
+  //       fontSize={20}
+  //       draggable
+  //       onDragEnd={handleDragEnd}
+  //       fontFamily={"pigpen_cipherregular"}
+  //       text="test"
+  //       />
+  //     </Layer>
+  // }
 
   const loadImage = () => {
     return <Layer>
@@ -94,9 +108,7 @@ export default function CaseFileOne() {
             <h1>Case File One</h1>
             <p>username</p>
           </header>
-          <div className="coffee-div">
-            <p><i className="flaticon-coffee-cup" /><i className="flaticon-coffee-cup" /><i className="flaticon-coffee-cup" /></p>
-          </div>
+          <LoadCoffee timer={timer}/>
         </div>
         <div className="canvas1">
         <Stage 
@@ -115,7 +127,6 @@ export default function CaseFileOne() {
               fill="white"
             />
           </Layer>
-          {pigpenInCanvas()}
           {loadImage()}
           <Layer>
             {lines.map((line, i) => (
@@ -123,7 +134,7 @@ export default function CaseFileOne() {
                 ))}
           </Layer>
         </Stage>
-        <button onClick={deleteLine}>Reset</button>
+        <button onClick={deleteLine}>Clear</button>
         </div>
           <div>
             <p />

@@ -18,13 +18,13 @@ class CaseFileThree extends React.Component {
                 y={0}
                 width={500}
                 height={500}
-                fill="grey"
+                fill="white"
               />
             </Layer>
           </Stage>
         </div>
         <header className="CaseFileThree-header">
-          <div className="case-two-full">
+          <div className="case-three-full">
           <label>Answer</label>
             <p />
             <input type="text"/><button>Submit</button>
