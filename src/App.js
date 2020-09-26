@@ -22,7 +22,7 @@ class App extends React.Component{
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/main" component={MainMenu} />
             <Route exact path="/tutorial" component={Tutorial} />
-            <Route exact path="/case-one" component={CaseFileOne} />
+            <Route exact path="/case-one" component={CaseFileOne}/>
             <Route exact path="/case-two" component={CaseFileTwo} />
             <Route exact path="/case-three" component={CaseFileThree} />
         </Switch>

@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import '../css/CaseFileThree.css';
+import useImage from 'use-image';
 import LoadCoffee from './LoadCoffee'
 
 export default function CaseFileThree() {
-  const [answer] = useState("rendezvous at midnight by the river");
-  const [image, setImage] = useState(new window.Image());
+  const [answer] = useState("compromised new hideout fischer building");
+  const url = 'https://i.ibb.co/7vSdsGS/gumshoe.png'
+  const [image] = useImage(url);
+  //const [setImage] = useState(new window.Image());
   const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
   const [userAnswer, setUserAnswer] = useState('');
   const [timer, setTimer] = useState(0)
   const defaults = []
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pigpen_cipher_key.svg/1200px-Pigpen_cipher_key.svg.png";
-    setImage(img);
-  }, []);
   
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -63,7 +59,6 @@ export default function CaseFileThree() {
     }
   }
  
-
   const loadImage = () => {
     return <Layer>
       <Image 
@@ -79,7 +74,7 @@ export default function CaseFileThree() {
       <div className="CaseFileOne">
         <div className="headertop">
           <header>
-            <h1>Case File One</h1>
+            <h1>Case File Three</h1>
             <p>username</p>
           </header>
           <LoadCoffee timer={timer}/>
@@ -101,10 +96,7 @@ export default function CaseFileThree() {
               fill="white"
             />
           </Layer>
-          
-          <Layer>
-            <Line points={3, 50} stroke={"blue"}></Line>
-          </Layer>
+          {loadImage()}
           <Layer>
             {lines.map((line, i) => (
               <Line key={i} id={i} points={line} stroke="red" />
@@ -112,6 +104,11 @@ export default function CaseFileThree() {
           </Layer>
         </Stage>
         <button onClick={deleteLine}>Clear</button>
+        <p />
+
+          <div className="decode">
+          <h3>OEQUBNAQBUVI OPUZKFAEPH IKBHCUY KFMDFQDVM</h3>
+          </div>
         </div>
           <div>
             <p />

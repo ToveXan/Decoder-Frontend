@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import '../css/CaseFileOne.css';
 import LoadCoffee from './LoadCoffee'
+import useImage from 'use-image';
+import { withRouter } from 'react-router-dom';
 
-
-export default function CaseFileOne() {
+function CaseFileOne(props) {
   const [answer] = useState("rendezvous at midnight by the river");
-  const [image, setImage] = useState(new window.Image());
   const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
   const [userAnswer, setUserAnswer] = useState('');
   const [timer, setTimer] = useState(0)
-// const [x, setX] = useState(5)
-//  const [y, setY] = useState(450)
   const defaults = []
+  const url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pigpen_cipher_key.svg/1200px-Pigpen_cipher_key.svg.png'
+  const [image] = useImage(url);
 
-  useEffect(() => {
-    const img = new window.Image();
-    img.src =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pigpen_cipher_key.svg/1200px-Pigpen_cipher_key.svg.png";
-    setImage(img);
-  }, []);
+  console.log(props);
   
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -65,30 +60,6 @@ export default function CaseFileOne() {
       console.log("somethin' aint right")
     }
   }
-  // const handleDragEnd = (e) => {
-  //   setX(e.target.x())
-  //   setY(e.target.y())
-  // }
-
-  // const pigpenInCanvas = () => {
-  //   return <Layer>
-  //     <Text 
-  //       x={5}
-  //       y={420}
-  //       fontSize={20}
-  //       text="click the text below to see the transition"
-  //       />
-  //       <Text 
-  //       x={x}
-  //       y={y}
-  //       fontSize={20}
-  //       draggable
-  //       onDragEnd={handleDragEnd}
-  //       fontFamily={"pigpen_cipherregular"}
-  //       text="test"
-  //       />
-  //     </Layer>
-  // }
 
   const loadImage = () => {
     return <Layer>
@@ -138,7 +109,7 @@ export default function CaseFileOne() {
         </div>
           <div>
             <p />
-            <p className="test">rendezvous at midnight by the river</p>
+            <h3 className="test">rendezvous at midnight by the river</h3>
             <p />
             <form onSubmit={handleSubmit}>
             <label>Answer</label>
@@ -153,3 +124,4 @@ export default function CaseFileOne() {
     );
 }
 
+export default withRouter(CaseFileOne);

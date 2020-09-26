@@ -20,7 +20,8 @@
     "react-script-tag": "^1.1.2",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
-    "typekit": "^0.1.1"
+    "typekit": "^0.1.1",
+    "use-image": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

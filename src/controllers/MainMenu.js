@@ -37,7 +37,13 @@ class MainMenu extends React.Component {
             Tutorial
             </NavLink>
             <p />
-            <NavLink to="/case-one">
+            <NavLink to={{
+              pathname:"/case-one",
+              caseProps:{
+                users: this.state
+              }
+            }}
+            >
             Case One
             </NavLink>
             <p />
