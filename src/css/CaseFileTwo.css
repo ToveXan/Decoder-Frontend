@@ -1,3 +1,17 @@
 .canvas2 {
   border: 2px solid black;
 }
+.draggable { position: relative; }
+
+.draggable .top {
+  position: absolute;
+  top: 41px;
+  right: 40px;
+  z-index: 2;
+}
+.draggable .bottom {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
