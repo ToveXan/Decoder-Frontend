@@ -50,7 +50,7 @@ export default function CaseFileTwo() {
   }
 
     return (
-      <div className="CaseFileTwo">
+      <div className="case-two">
         <header className="CaseFileTwo-header">
         <h1>Case File Two</h1>
             <p>username</p>

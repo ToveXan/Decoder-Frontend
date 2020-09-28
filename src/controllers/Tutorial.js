@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import LoadCoffee from './LoadCoffee'
 import '../css/Tutorial.css';
+//need to update the way images load to make them work
+
+
 
 function Tutorial() {
   const [answer] = useState("Hello, world.");

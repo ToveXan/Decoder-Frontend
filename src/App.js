@@ -10,22 +10,27 @@ import CaseFileOne from './controllers/CaseFileOne';
 import CaseFileTwo from './controllers/CaseFileTwo';
 import CaseFileThree from './controllers/CaseFileThree';
 import Tutorial from './controllers/Tutorial';
-
+import Navbar from './controllers/Navbar';
+import About from './controllers/About';
 
 class App extends React.Component{
   render(){
   return (
       <div className="App">
-        <Switch>
+        <div>
             <Route exact path="/" component={Title} />
             <Route exact path="/login" component={Login} />
+            <div>
+            <Navbar />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/main" component={MainMenu} />
             <Route exact path="/tutorial" component={Tutorial} />
             <Route exact path="/case-one" component={CaseFileOne}/>
             <Route exact path="/case-two" component={CaseFileTwo} />
             <Route exact path="/case-three" component={CaseFileThree} />
-        </Switch>
+            <Route exact path="/about" component={About} />
+            </div>
+        </div>
       </div>
     );
   }

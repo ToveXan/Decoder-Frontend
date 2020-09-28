@@ -72,7 +72,7 @@ function CaseFileOne() {
     </Layer>
   }
     return (
-      <div className="CaseFileOne">
+      <div className="case-one">
         <div className="headertop">
           <header>
             <h1>Case File One</h1>

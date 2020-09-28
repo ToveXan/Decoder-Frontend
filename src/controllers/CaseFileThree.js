@@ -71,7 +71,7 @@ export default function CaseFileThree() {
     </Layer>
   }
     return (
-      <div className="CaseFileOne">
+      <div className="case-three">
         <div className="headertop">
           <header>
             <h1>Case File Three</h1>

@@ -25,7 +25,7 @@ class MainMenu extends React.Component {
   render() {
     console.log(this.state.users)
     return (
-      <div className="MainMenu">
+      <div className="main-menu">
           <div>
             <p>this is {this.grabUser()}'s menu</p>
             <p />
