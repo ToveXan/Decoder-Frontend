@@ -5,7 +5,7 @@ import LoadCoffee from './LoadCoffee'
 import useImage from 'use-image';
 import { withRouter } from 'react-router-dom';
 
-function CaseFileOne(props) {
+function CaseFileOne() {
   const [answer] = useState("rendezvous at midnight by the river");
   const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
@@ -15,7 +15,6 @@ function CaseFileOne(props) {
   const url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pigpen_cipher_key.svg/1200px-Pigpen_cipher_key.svg.png'
   const [image] = useImage(url);
 
-  console.log(props);
   
   const handleMouseDown = (e) => {
     isDrawing.current = true;
