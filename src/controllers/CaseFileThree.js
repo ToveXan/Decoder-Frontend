@@ -3,18 +3,21 @@ import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import '../css/CaseFileThree.css';
 import useImage from 'use-image';
 import LoadCoffee from './LoadCoffee'
+import GrahamDialogue from './modal/GrahamDialogue'
 
 export default function CaseFileThree() {
   const [answer] = useState("compromised new hideout fischer building");
   const url = 'https://i.ibb.co/7vSdsGS/gumshoe.png'
   const [image] = useImage(url);
-  //const [setImage] = useState(new window.Image());
   const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
   const [userAnswer, setUserAnswer] = useState('');
   const [timer, setTimer] = useState(0)
   const defaults = []
-  
+  const [show, setShow] = useState(false)
+
+  const closeModalHandler = () => setShow(false);
+
   const handleMouseDown = (e) => {
     isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
@@ -70,6 +73,11 @@ export default function CaseFileThree() {
       />
     </Layer>
   }
+
+  const cancelInput = () => { 
+    document.getElementById("answer-form").reset();
+  }
+
     return (
       <div className="case-three">
         <div className="headertop">
@@ -79,6 +87,7 @@ export default function CaseFileThree() {
           </header>
           <LoadCoffee timer={timer}/>
         </div>
+          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
         <div className="canvas1">
         <Stage 
         width={500} 
@@ -112,14 +121,18 @@ export default function CaseFileThree() {
         </div>
           <div>
             <p />
-            <form onSubmit={handleSubmit}>
+            <form id="answer-form" onSubmit={handleSubmit}>
             <label>Answer</label>
             <p />
             <input 
               type="text" 
               onChange={e => setUserAnswer(e.target.value)} />
-            <button type="submit">Submit</button>
+            <button type="submit" onClick={cancelInput}>Submit</button>
             </form>
+          </div>
+          { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
+          <div>
+            <GrahamDialogue show={show} close={closeModalHandler} />
           </div>
       </div>
     );

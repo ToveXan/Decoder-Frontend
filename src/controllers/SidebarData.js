@@ -36,12 +36,12 @@ export const SidebarData = [
     icon: <RiIcons.RiBriefcase3Line />,
     cName: 'nav-text'
   },
-  {
-    title: 'Hint',
-    path: '/',
-    icon: <AiIcons.AiOutlineQuestion />,
-    cName: 'nav-text'
-  },
+  // {
+  //   title: 'Hint',
+  //   path: '/',
+  //   icon: <AiIcons.AiOutlineQuestion />,
+  //   cName: 'nav-text'
+  // },
   {
     title: 'About',
     path: '/about',

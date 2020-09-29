@@ -1,36 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import LoadCoffee from './LoadCoffee'
 import '../css/Tutorial.css';
-//need to update the way images load to make them work
-
+import useImage from 'use-image';
+import GrahamDialogue from './modal/GrahamDialogue'
 
 
 function Tutorial() {
   const [answer] = useState("Hello, world.");
   const [timer, setTimer] = useState(0)
-  const [image1, setImage1] = useState(new window.Image());
-  const [image2, setImage2] = useState(new window.Image());
   const [lines, setLines] = useState([]);
   const isDrawing = React.useRef(false);
   const [userAnswer, setUserAnswer] = useState('');
   const defaults = []
   const scan1 = "https://i.ibb.co/FJC0QV4/Postman-Scan.png"
   const scan2 = "https://i.ibb.co/fFfZf7T/Postman-Scan2.png"
+  const [image1] = useImage(scan1);
+  const [image2] = useImage(scan2);
+  const [show, setShow] = useState(false)
 
-  useEffect(() => {
-    const img = new window.Image();
-    img.src =
-      scan1;
-    setImage1(img);
-  }, []);
+  const closeModalHandler = () => setShow(false);
 
-  useEffect(() => {
-    const img = new window.Image();
-    img.src =
-      scan2;
-    setImage2(img);
-  }, []);
+  
 
   const loadImageOne = () => {
     return <Layer>
@@ -100,15 +91,18 @@ function Tutorial() {
   }
 
   return (
-    <div className="Tutorial">
+    <div className="tutorial">
+        <div>
         <header>
-        <h1>Tutorial</h1>
-            <p>username</p>
-        </header>
-        <LoadCoffee timer={timer}/>
+          <h1>Tutorial</h1>
+              <p>username</p>
+          </header>
+          <LoadCoffee timer={timer}/>
+        </div>
+          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
         <div className="tut-canvas">
           <Stage 
-          width={700} 
+          width={800} 
           height={500}
           onMouseDown={handleMouseDown}
           onMousemove={handleMouseMove}
@@ -150,6 +144,8 @@ function Tutorial() {
               <button type="submit">Submit</button>
             </form>
           </div>
+          { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
+            <GrahamDialogue show={show} close={closeModalHandler} />
       </div>
   );
 }

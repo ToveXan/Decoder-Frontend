@@ -12,25 +12,30 @@ import CaseFileThree from './controllers/CaseFileThree';
 import Tutorial from './controllers/Tutorial';
 import Navbar from './controllers/Navbar';
 import About from './controllers/About';
+import GrahamDialogue from './controllers/modal/GrahamDialogue';
+
 
 class App extends React.Component{
   render(){
   return (
       <div className="App">
-        <div>
+        
+        <Switch>
             <Route exact path="/" component={Title} />
             <Route exact path="/login" component={Login} />
-            <div>
-            <Navbar />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/main" component={MainMenu} />
+            
+          </Switch>
+          <div className="file-div">
+            <Navbar />
             <Route exact path="/tutorial" component={Tutorial} />
             <Route exact path="/case-one" component={CaseFileOne}/>
             <Route exact path="/case-two" component={CaseFileTwo} />
             <Route exact path="/case-three" component={CaseFileThree} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/popup" component={GrahamDialogue} />
             </div>
-        </div>
       </div>
     );
   }

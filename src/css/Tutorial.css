@@ -1,3 +1,7 @@
-.tut-canvas {
-  border: 2px solid grey;
+.tutorial {
+  width: 700px;
+  display: inline-block;
+  margin: 0;
+  align-items: center;
+  
 }

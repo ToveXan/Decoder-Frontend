@@ -21,7 +21,7 @@
   
   .all-links {
     
-    /*transform: skew(-5deg, 10deg);*/
+    transform: skewY(-20deg);
   }
   
   .side-nav {

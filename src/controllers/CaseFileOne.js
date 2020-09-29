@@ -4,6 +4,9 @@ import '../css/CaseFileOne.css';
 import LoadCoffee from './LoadCoffee'
 import useImage from 'use-image';
 import { withRouter } from 'react-router-dom';
+import GrahamDialogue from './modal/GrahamDialogue'
+
+
 
 function CaseFileOne() {
   const [answer] = useState("rendezvous at midnight by the river");
@@ -14,7 +17,8 @@ function CaseFileOne() {
   const defaults = []
   const url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pigpen_cipher_key.svg/1200px-Pigpen_cipher_key.svg.png'
   const [image] = useImage(url);
-
+  const [show, setShow] = useState(false)
+  const [ next, setNext] = useState(false)
   
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -60,6 +64,7 @@ function CaseFileOne() {
     }
   }
 
+
   const loadImage = () => {
     return <Layer>
       <Image 
@@ -71,54 +76,77 @@ function CaseFileOne() {
       />
     </Layer>
   }
+  const cancelInput = () => { 
+    document.getElementById("answer-form").reset();
+  }
+
+  // const loadGraham = () => {
+  //   return <div className="back-drop">
+  //   <GrahamDialogue show={show} close={closeModalHandler} />
+  //   </div>
+  // }
+  
+  const closeModalHandler = () => { 
+    setShow(false)
+    setNext(false)
+  }
+
+
     return (
       <div className="case-one">
         <div className="headertop">
           <header>
             <h1>Case File One</h1>
-            <p>username</p>
           </header>
-          <LoadCoffee timer={timer}/>
-        </div>
-        <div className="canvas1">
-        <Stage 
-        width={500} 
-        height={500}
-        onMouseDown={handleMouseDown}
-        onMousemove={handleMouseMove}
-        onMouseup={handleMouseUp}
-        >
-          <Layer>
-            <Rect
-              x={0}
-              y={0}
-              width={500}
-              height={500}
-              fill="white"
-            />
-          </Layer>
-          {loadImage()}
-          <Layer>
-            {lines.map((line, i) => (
-              <Line key={i} id={i} points={line} stroke="red" />
-                ))}
-          </Layer>
-        </Stage>
-        <button onClick={deleteLine}>Clear</button>
-        </div>
-          <div>
-            <p />
-            <h3 className="test">rendezvous at midnight by the river</h3>
-            <p />
-            <form onSubmit={handleSubmit}>
-            <label>Answer</label>
-            <p />
-            <input 
-              type="text" 
-              onChange={e => setUserAnswer(e.target.value)} />
-            <button type="submit">Submit</button>
-            </form>
+          <div className="game-state">
+            <p>Tove</p>
+            <LoadCoffee timer={timer}/>
           </div>
+        </div>
+          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
+        <div className="body-div">
+          <div className="canvas1">
+            <Stage 
+            width={500} 
+            height={500}
+            onMouseDown={handleMouseDown}
+            onMousemove={handleMouseMove}
+            onMouseup={handleMouseUp}
+            >
+              <Layer>
+                <Rect
+                  x={0}
+                  y={0}
+                  width={500}
+                  height={500}
+                  fill="white"
+                />
+              </Layer>
+              {loadImage()}
+              <Layer>
+                {lines.map((line, i) => (
+                  <Line key={i} id={i} points={line} stroke="red" />
+                    ))}
+              </Layer>
+            </Stage>
+          <button className="btn" onClick={deleteLine}>Clear</button>
+          </div>
+            <div>
+              <p />
+              <h3 className="test">rendezvous at midnight by the river</h3>
+              <p />
+              <form id="answer-form" onSubmit={handleSubmit}>
+              <label>Answer</label>
+              <p />
+                <input 
+                  type="text" 
+                  onChange={e => setUserAnswer(e.target.value)} />
+                <button className="btn" type="submit" onClick={cancelInput}>Submit</button>
+              </form>
+            </div>
+        </div>
+        { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
+            <GrahamDialogue show={show} close={closeModalHandler} next={next} setNext={setNext} />
       </div>
     );
 }

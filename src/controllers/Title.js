@@ -14,13 +14,13 @@ class Title extends React.Component{
           <NavLink 
             to="/login"
             className="side-nav">
-            Login
+            LOGIN
           </NavLink>
           <p />
           <NavLink 
             to="/signup"
             className="side-nav">
-            Signup
+            SIGNUP
           </NavLink>
         </div>
       </div>
