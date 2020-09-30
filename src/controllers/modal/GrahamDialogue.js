@@ -1,4 +1,4 @@
-import React,  { useState } from 'react';
+import React from 'react';
 //import Typist from 'react-typist';
 import './GrahamDialogue.css'
 
@@ -6,7 +6,6 @@ import './GrahamDialogue.css'
 export default function GrahamDialogue({ show, close, next, setNext }) {
 
     const test = <p className="typewriter">or maybe render this?</p>
-    
     return (
         <div className="modal-wrapper"
             style={{

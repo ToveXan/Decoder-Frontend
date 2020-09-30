@@ -7,9 +7,9 @@ class Title extends React.Component{
   render(){
   return (
       <div className="title-full">
-        <div>
+        {/* <div>
           <h1 className="title">Hello</h1>
-        </div>
+        </div> */}
         <div className="all-links">
           <NavLink 
             to="/login"

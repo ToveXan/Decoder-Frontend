@@ -8,10 +8,9 @@ import { IconContext } from 'react-icons';
 
 
 function Navbar() {
-
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const [show, setShow] = useState(false)
+ 
 
   return (
     <>

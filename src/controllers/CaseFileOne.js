@@ -19,6 +19,8 @@ function CaseFileOne() {
   const [image] = useImage(url);
   const [show, setShow] = useState(false)
   const [ next, setNext] = useState(false)
+  //let winner = <img className="winner" src="https://i.ibb.co/LJSfH3g/kisspng-stock-photography-royalty-free-stock-illustration-case-closed-transparent-png-5a781c5dacaed2.png"/>
+
   
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -55,7 +57,6 @@ function CaseFileOne() {
     if(userAnswer === answer){
       console.log("Now you got it!")
       setTimer(timer + 0)
-    }else if (userAnswer !== answer) {
       console.log(userAnswer)
       console.log("That's not quite right....")
       setTimer(timer + 1)
@@ -80,11 +81,6 @@ function CaseFileOne() {
     document.getElementById("answer-form").reset();
   }
 
-  // const loadGraham = () => {
-  //   return <div className="back-drop">
-  //   <GrahamDialogue show={show} close={closeModalHandler} />
-  //   </div>
-  // }
   
   const closeModalHandler = () => { 
     setShow(false)
@@ -97,6 +93,7 @@ function CaseFileOne() {
         <div className="headertop">
           <header>
             <h1>Case File One</h1>
+            {/* {winner} */}
           </header>
           <div className="game-state">
             <p>Tove</p>
@@ -132,12 +129,9 @@ function CaseFileOne() {
           <button className="btn" onClick={deleteLine}>Clear</button>
           </div>
             <div>
-              <p />
               <h3 className="test">rendezvous at midnight by the river</h3>
-              <p />
               <form id="answer-form" onSubmit={handleSubmit}>
               <label>Answer</label>
-              <p />
                 <input 
                   type="text" 
                   onChange={e => setUserAnswer(e.target.value)} />

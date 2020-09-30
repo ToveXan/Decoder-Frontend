@@ -1,59 +1,39 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import MainDialogue from './modal/MainDialogue'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import '../css/MainMenu.css';
 
 
-class MainMenu extends React.Component {
-  constructor(){
-    super()
-    this.state = {
-      users : []
-    }
-  }
 
-  componentDidMount() {
+function MainMenu() {
+const [users, setUsers] = useState([]);
+const [isOpen, setIsOpen] = useState(false);
+
+ useEffect(() => {
     fetch('http://localhost:4000/api/v1/users')
     .then(resp => resp.json())
-    .then(users  => 
-      this.setState({
-        users: users
-      }))
+    .then(users  => setUsers(users));
+ }, []);
+
+  const grabUser = () => {
+    return users.map(i => i.username)
   }
 
-  grabUser() {
-  return this.state.users.map(i => i.username)
-  }
-
-  render() {
-    console.log(this.state.users)
     return (
       <div className="main-menu">
-          <div>
-            <p>this is {this.grabUser()}'s menu</p>
-            <p />
-            <NavLink to="/">
-            Title Menu
-            </NavLink>
-            <p />
-            <NavLink to="/tutorial">
-            Tutorial
-            </NavLink>
-            <p />
-            <NavLink to="/case-one">
-            Case One
-            </NavLink>
-            <p />
-            <NavLink to="/case-two">
-            Case Two
-            </NavLink>
-            <p />
-            <NavLink to="/case-three">
-            Case Three
-            </NavLink>
-
-          </div>
+          <div className="inner-div">
+            <h3>Detective {grabUser()}</h3>
+            </div>
+            <div className="modal-start">
+              <button className="talk-btn" onClick={() => setIsOpen(true)}>Talk to Graham</button>
+              <MainDialogue open={isOpen} onClose={() => setIsOpen(false)}>
+                Wowee
+              </MainDialogue>
+            </div>
       </div>
     );
   }
-}
+
 
 export default MainMenu;

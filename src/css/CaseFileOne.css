@@ -1,20 +1,24 @@
 .case-one{
   width: 100%;
   order: 2;
+  height: 100vh;
+}
+.winner{
+  left: 400px; 
+  position:absolute; 
+  z-index:1;
 }
 .body-div {
-  margin-right: 50px;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  
+  text-align: center;;
 }
 
 .headertop {
   border-bottom: double;
   display: flex;
   justify-content: space-between;
-  margin-right: 50px;
+  margin: 0 50px 0 50px;
 }
 
 .game-state {
@@ -25,8 +29,6 @@
 
 .game-state p {
   align-self: flex-end;
-  margin-right: 20px;
-  font-size: 25px;
 }
 
 .btn {
@@ -34,8 +36,8 @@
   background-color: #4d2e01;
   color: white;
   border-radius: 5px;
-  margin: 2rem;
-  padding: 0.5rem 1.8rem;
+  margin: 2rem; 
+  padding: 0.5rem 1.8rem; 
   cursor: pointer;
   font-size: 1rem;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as AiIcons from 'react-icons/ai';
+//import * as AiIcons from 'react-icons/ai';
 import * as SiIcons from 'react-icons/si';
 import * as RiIcons from 'react-icons/ri';
 import * as BiIcons from 'react-icons/bi';
@@ -8,7 +8,7 @@ import * as BiIcons from 'react-icons/bi';
 export const SidebarData = [
   {
     title: 'Main Menu',
-    path: '/',
+    path: '/main',
     icon: <SiIcons.SiRedhat />,
     cName: 'nav-text'
   },

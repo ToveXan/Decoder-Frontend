@@ -1,12 +1,66 @@
-.canvas2 {
-  border: 2px solid black;
+.case-two{
+  width: 100%;
+  order: 2;
+}
+.body-div {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+.headertop {
+  border-bottom: double;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+
+.game-state {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-state p {
+  align-self: flex-end;
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.btn {
+  border: none;
+  background-color: #4d2e01;
+  color: white;
+  border-radius: 5px;
+  margin: 2rem;
+  padding: 0.5rem 1.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.canvas1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[class^="flaticon-coffee-cup"]:before, [class*=" flaticon-coffee-cup"]:before, [class^=" flaticon-coffee-cup"]:after, [class*=" flaticon-coffee-cup"]:after {
+
+  font-size: 40px;
+  
+  }
+[class^="flaticon-coffee"]:before, [class*=" flaticon-coffee"]:before, [class^=" flaticon-coffee"]:after, [class*=" flaticon-coffee"]:after {
+
+  font-size: 40px;
+    
 }
 .draggable { position: relative; }
 
 .draggable .top {
   position: absolute;
   top: 41px;
-  right: 40px;
+  left: -160px;
   z-index: 2;
 }
 .draggable .bottom {

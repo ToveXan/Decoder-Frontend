@@ -15,8 +15,12 @@ export default function CaseFileThree() {
   const [timer, setTimer] = useState(0)
   const defaults = []
   const [show, setShow] = useState(false)
+  const [ next, setNext] = useState(false)
 
-  const closeModalHandler = () => setShow(false);
+  const closeModalHandler = () => { 
+    setShow(false)
+    setNext(false)
+  }
 
   const handleMouseDown = (e) => {
     isDrawing.current = true;
@@ -65,8 +69,8 @@ export default function CaseFileThree() {
   const loadImage = () => {
     return <Layer>
       <Image 
-      x={20} 
-      y={20}
+      x={0} 
+      y={0}
       width={400}
       height={400}
       image={image} 
@@ -83,56 +87,54 @@ export default function CaseFileThree() {
         <div className="headertop">
           <header>
             <h1>Case File Three</h1>
-            <p>username</p>
           </header>
-          <LoadCoffee timer={timer}/>
+          <div className="game-state">
+            <p>Tove</p>
+            <LoadCoffee timer={timer}/>
+          </div>
         </div>
           <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
-        <div className="canvas1">
-        <Stage 
-        width={500} 
-        height={500}
-        onMouseDown={handleMouseDown}
-        onMousemove={handleMouseMove}
-        onMouseup={handleMouseUp}
-        >
-          <Layer>
-            <Rect
-              x={0}
-              y={0}
-              width={500}
-              height={500}
-              fill="white"
-            />
-          </Layer>
-          {loadImage()}
-          <Layer>
-            {lines.map((line, i) => (
-              <Line key={i} id={i} points={line} stroke="red" />
-                ))}
-          </Layer>
-        </Stage>
-        <button onClick={deleteLine}>Clear</button>
-        <p />
-
+        <div className="body-div">
+            <div className="canvasThree">
+              <Stage 
+              width={400} 
+              height={400}
+              onMouseDown={handleMouseDown}
+              onMousemove={handleMouseMove}
+              onMouseup={handleMouseUp}
+              >
+              <Layer>
+                <Rect
+                  x={0}
+                  y={0}
+                  width={400}
+                  height={400}
+                  fill="white"
+                />
+              </Layer>
+              {loadImage()}
+              <Layer>
+                {lines.map((line, i) => (
+                  <Line key={i} id={i} points={line} stroke="red" />
+                    ))}
+              </Layer>
+            </Stage>
+          <button className="btn" onClick={deleteLine}>Clear</button>
+          </div>
           <div className="decode">
-          <h3>OEQUBNAQBUVI OPUZKFAEPH IKBHCUY KFMDFQDVM</h3>
+            <h3>OEQUBNAQBUVI OPUZKFAEPH IKBHCUY KFMDFQDVM</h3>
           </div>
-        </div>
-          <div>
-            <p />
-            <form id="answer-form" onSubmit={handleSubmit}>
-            <label>Answer</label>
-            <p />
-            <input 
-              type="text" 
-              onChange={e => setUserAnswer(e.target.value)} />
-            <button type="submit" onClick={cancelInput}>Submit</button>
-            </form>
-          </div>
+            <div>
+              <form id="answer-form" onSubmit={handleSubmit}>
+              <label>Answer</label>
+              <input 
+                type="text" 
+                onChange={e => setUserAnswer(e.target.value)} />
+              <button className="btn" type="submit" onClick={cancelInput}>Submit</button>
+              </form>
+            </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
-          <div>
-            <GrahamDialogue show={show} close={closeModalHandler} />
+            <GrahamDialogue show={show} close={closeModalHandler} next={next} setNext={setNext} />
           </div>
       </div>
     );

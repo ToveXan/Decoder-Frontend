@@ -17,9 +17,12 @@ export default function CaseFileTwo() {
   const [answer] = useState("you need to go, they are coming");
   const [userAnswer, setUserAnswer] = useState('');
   const [show, setShow] = useState(false)
+  const [ next, setNext] = useState(false)
 
-  const closeModalHandler = () => setShow(false);
-
+  const closeModalHandler = () => { 
+    setShow(false)
+    setNext(false)
+  }
   useEffect(() => {
     dragInstance1.current = Draggable.create(dragTarget1.current, {
       type: "rotation",
@@ -57,39 +60,40 @@ export default function CaseFileTwo() {
 
     return (
       <div className="case-two">
-        <div>
-        <header className="CaseFileTwo-header">
-        <h1>Case File Two</h1>
-            <p>username</p>
-        </header>
-        <LoadCoffee timer={timer}/>
+        <div className="headertop">
+          <header>
+            <h1>Case File Two</h1>
+          </header>
+          <div className="game-state">
+            <p>Tove</p>
+            <LoadCoffee timer={timer}/>
+          </div>
         </div>
           <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
-        <div className="draggable">
+        <div className="body-div">
+          <div className="draggable">
             <img className="top" src={'https://i.ibb.co/ZTqGTgc/caesar-middle-1-3.png'} ref={dragTarget2} alt="" />
           </div>
           <div className="draggable" >
             <img className="bottom" src={'https://i.ibb.co/1Gkk1BC/caesar-top-1.png'} ref={dragTarget1}alt="" />
           </div>
-          <p />
-
           <div className="decode">
-          <h3>5 10</h3>
-          <h3>DTZ SJJI YT LT, DROI KBO MYWSXQ</h3>
+            <h3>5 10</h3>
+            <h3>DTZ SJJI YT LT, DROI KBO MYWSXQ</h3>
           </div>
-          
           <div className="case-two-full">
-          <label>Answer</label>
-          <p />
             <form id="answer-form" onSubmit={handleSubmit}>
-              <input 
-                type="text" 
-                onChange={e => setUserAnswer(e.target.value)} />
-              <button type="submit" onClick={cancelInput}>Submit</button>
-            </form>
+                <label>Answer</label>
+
+                  <input 
+                    type="text" 
+                    onChange={e => setUserAnswer(e.target.value)} />
+                  <button className="btn" type="submit" onClick={cancelInput}>Submit</button>
+                </form>
+            </div>
           </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
-            <GrahamDialogue show={show} close={closeModalHandler} />
+            <GrahamDialogue show={show} close={closeModalHandler} next={next} setNext={setNext} />
       </div>
     );
   }
