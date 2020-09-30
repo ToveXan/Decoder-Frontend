@@ -95,7 +95,7 @@ export default function CaseFileThree() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(userAnswer === answer){
-      console.log("Now you got it!")
+      alert("Now we're talkin'! You got it!")
       setTimer(timer + 0)
     }else if (userAnswer !== answer) {
       console.log(userAnswer)

@@ -102,7 +102,7 @@ function CaseFileOne() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(userAnswer === answer){
-      console.log("Now you got it!")
+      alert("Now we're talkin'! You got it!")
       setTimer(timer + 0)
       console.log(userAnswer)
       console.log("That's not quite right....")
