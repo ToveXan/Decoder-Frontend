@@ -30,6 +30,7 @@ body {
 
 .main-content {
   padding: 1.5rem 1.5rem;
+  height: auto;
 }
 
 .main-body {
@@ -43,11 +44,14 @@ body {
   margin: 1rem 0 2 rem 0;
 }
 
+.main-footer {
+  display: flex;
+}
+
 .main-footer button {
   border-radius: 5px;
   display: block;
   font-size: 1rem;
-  margin-left: auto;
   padding: 0.5rem 1.8rem;
   background: #4d2e01;
   color: #fff;

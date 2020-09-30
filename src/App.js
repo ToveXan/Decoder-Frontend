@@ -12,7 +12,7 @@ import CaseFileThree from './controllers/CaseFileThree';
 import Tutorial from './controllers/Tutorial';
 import Navbar from './controllers/Navbar';
 import About from './controllers/About';
-import GrahamDialogue from './controllers/modal/GrahamDialogue';
+
 
 
 class App extends React.Component{

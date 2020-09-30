@@ -3,9 +3,7 @@ import React from 'react';
 import './GrahamDialogue.css'
 
 
-export default function GrahamDialogue({ show, close, next, setNext }) {
-
-    const test = <p className="typewriter">or maybe render this?</p>
+export default function GrahamDialogue({ show, close, count, setCount, children }) {
     return (
         <div className="modal-wrapper"
             style={{
@@ -18,11 +16,11 @@ export default function GrahamDialogue({ show, close, next, setNext }) {
             </div>
             <div className="modal-content">
                 <div className="modal-body">
-                   { next ? test :  <p className="typewriter">Hey, kid. So it looks like it's workin' so far, but we still got a long way to go.</p> }
+                   {children}
                 </div>
                 <div className="modal-footer">
                     <button className="btn" 
-                    onClick={() => setNext(true)}>Next</button>
+                    onClick={() => setCount(count+1)}>Next</button>
                     <button className="btn" 
                     onClick={close}> Close</button>
                 </div>

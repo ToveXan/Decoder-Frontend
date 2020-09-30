@@ -16,7 +16,6 @@ body {
 }
 
 
-
 .modal-header {
   background: #2c2c2c;
   color: #e9e9ee;
@@ -33,6 +32,7 @@ body {
 
 .modal-content {
   padding: 1.5rem 1.5 rem;
+  height: auto;
 }
 
 .modal-body {
@@ -46,10 +46,16 @@ body {
   margin: 1rem 0 2 rem 0;
 }
 
+.modal-footer {
+  display: flex;
+}
+
 .modal-footer button {
+  margin-left: 0;
+  align-items: flex-start;
+  border-radius: 5px;
   display: block;
   font-size: 1rem;
-  margin-left: auto;
   padding: 0.5rem 1.8rem;
   background: #4d2e01;
   color: #fff;

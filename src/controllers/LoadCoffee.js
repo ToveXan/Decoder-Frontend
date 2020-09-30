@@ -14,6 +14,10 @@ export default function LoadCoffee(props) {
           case 2:
             return <p><i className="flaticon-coffee-cup" /><i className="flaticon-coffee" /><i className="flaticon-coffee" /></p>
           case 3:
+            alert("We're all out of coffee, that's enough work for today.")
+            props.setTimer(props.timer+1)
+            return <p><i className="flaticon-coffee" /><i className="flaticon-coffee" /><i className="flaticon-coffee" /></p>
+          case 4:
             return <p><i className="flaticon-coffee" /><i className="flaticon-coffee" /><i className="flaticon-coffee" /></p>
           default:
             console.log("oops");

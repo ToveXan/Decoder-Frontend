@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import '../css/CaseFileThree.css';
 import useImage from 'use-image';
@@ -15,11 +15,51 @@ export default function CaseFileThree() {
   const [timer, setTimer] = useState(0)
   const defaults = []
   const [show, setShow] = useState(false)
-  const [ next, setNext] = useState(false)
+  const [gLines, setGLines] = useState([]);
+  const [count, setCount] = useState(0);
 
-  const closeModalHandler = () => { 
+  const closeModalHandler = () => {
     setShow(false)
-    setNext(false)
+    setCount(0)
+  }
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    const data = await fetch(
+      "http://localhost:4000/api/v1/graham_threes"
+    );
+    const gLines = await data.json();
+    setGLines(gLines);
+  };
+  
+  const grabLines = () => {
+    const gLine = gLines.map(i => i.description)
+    if(count === 0) {
+        return <p>{gLine[0]}</p>
+    }else if(count === 1){
+        return <p>{gLine[1]}</p>
+    }else if(count === 2){
+        return <p>{gLine[2]}</p>
+    }else if(count === 3){
+        return <p>{gLine[3]}</p>
+    }else if(count === 4){
+        return <p>{gLine[4]}</p>
+    }else if(count === 5){
+        return <p>{gLine[5]}</p>
+    }else if(count === 6){
+        return <p>{gLine[6]}</p>
+    }else if(count === 7){
+        return <p>{gLine[7]}</p>
+    }else if(count === 8){
+        return <p>{gLine[8]}</p>
+    }else if(count === 9){
+        return <p>{gLine[9]}</p>
+    }else if(count === 10){
+      return <p>....What?</p>
+    }
   }
 
   const handleMouseDown = (e) => {
@@ -90,7 +130,7 @@ export default function CaseFileThree() {
           </header>
           <div className="game-state">
             <p>Tove</p>
-            <LoadCoffee timer={timer}/>
+            <LoadCoffee setTimer={setTimer} timer={timer}/>
           </div>
         </div>
           <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
@@ -134,8 +174,11 @@ export default function CaseFileThree() {
               </form>
             </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
-            <GrahamDialogue show={show} close={closeModalHandler} next={next} setNext={setNext} />
-          </div>
+          <GrahamDialogue show={show} close={closeModalHandler} count={count} setCount={setCount}>
+              {grabLines()}
+            </GrahamDialogue>
+            </div>
+        
       </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Stage, Layer, Rect, Image, Line } from 'react-konva';
 import LoadCoffee from './LoadCoffee'
 import '../css/Tutorial.css';
@@ -18,10 +18,55 @@ function Tutorial() {
   const [image1] = useImage(scan1);
   const [image2] = useImage(scan2);
   const [show, setShow] = useState(false)
+  const [gLines, setGLines] = useState([]);
+  const [count, setCount] = useState(0);
 
-  const closeModalHandler = () => setShow(false);
+  const closeModalHandler = () => {
+    setShow(false)
+    setCount(0)
+  }
 
-  
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    const data = await fetch(
+      "http://localhost:4000/api/v1/graham_tutorials"
+    );
+    const gLines = await data.json();
+    setGLines(gLines);
+  };
+
+  const grabLines = () => {
+    
+    const gLine = gLines.map(i => i.description)
+    if(count === 0) {
+        return <p>{gLine[0]}</p>
+    }else if(count === 1){
+        return <p>{gLine[1]}</p>
+    }else if(count === 2){
+        return <p>{gLine[2]}</p>
+    }else if(count === 3){
+        return <p>{gLine[3]}</p>
+    }else if(count === 4){
+        return <p>{gLine[4]}</p>
+    }else if(count === 5){
+        return <p>{gLine[5]}</p>
+    }else if(count === 6){
+        return <p>{gLine[6]}</p>
+    }else if(count === 7){
+        return <p>{gLine[7]}</p>
+    }else if(count === 8){
+        return <p>{gLine[8]}</p>
+    }else if(count === 9){
+        return <p>{gLine[9]}</p>
+    }else if(count === 10){
+        return <p>{gLine[10]}</p>
+    }else if(count === 11){
+      return <p>....What?</p>
+    }
+  }
 
   const loadImageOne = () => {
     return <Layer>
@@ -97,7 +142,7 @@ function Tutorial() {
           <h1>Tutorial</h1>
               <p>username</p>
           </header>
-          <LoadCoffee timer={timer}/>
+          <LoadCoffee setTimer={setTimer} timer={timer}/>
         </div>
           <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
         <div className="tut-canvas">
@@ -132,7 +177,7 @@ function Tutorial() {
               52:10:2 <br />
               128:13:4 <br />
               128:13:5 
-              </h3>
+            </h3>
           </div>
           <div className="tutorial-full">
           <label>Answer</label>
@@ -145,7 +190,10 @@ function Tutorial() {
             </form>
           </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
-            <GrahamDialogue show={show} close={closeModalHandler} />
+            <GrahamDialogue show={show} close={closeModalHandler} count={count} setCount={setCount}>
+              {grabLines()}
+            </GrahamDialogue>
+            
       </div>
   );
 }

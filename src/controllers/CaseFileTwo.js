@@ -17,11 +17,52 @@ export default function CaseFileTwo() {
   const [answer] = useState("you need to go, they are coming");
   const [userAnswer, setUserAnswer] = useState('');
   const [show, setShow] = useState(false)
-  const [ next, setNext] = useState(false)
 
-  const closeModalHandler = () => { 
+  const [gLines, setGLines] = useState([]);
+  const [count, setCount] = useState(0);
+
+  const closeModalHandler = () => {
     setShow(false)
-    setNext(false)
+    setCount(0)
+  }
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    const data = await fetch(
+      "http://localhost:4000/api/v1/graham_twos"
+    );
+    const gLines = await data.json();
+    setGLines(gLines);
+  };
+  
+  const grabLines = () => {
+    const gLine = gLines.map(i => i.description)
+    if(count === 0) {
+        return <p>{gLine[0]}</p>
+    }else if(count === 1){
+        return <p>{gLine[1]}</p>
+    }else if(count === 2){
+        return <p>{gLine[2]}</p>
+    }else if(count === 3){
+        return <p>{gLine[3]}</p>
+    }else if(count === 4){
+        return <p>{gLine[4]}</p>
+    }else if(count === 5){
+        return <p>{gLine[5]}</p>
+    }else if(count === 6){
+        return <p>{gLine[6]}</p>
+    }else if(count === 7){
+        return <p>{gLine[7]}</p>
+    }else if(count === 8){
+        return <p>{gLine[8]}</p>
+    }else if(count === 9){
+        return <p>{gLine[9]}</p>
+    }else if(count === 10){
+      return <p>....What?</p>
+    }
   }
   useEffect(() => {
     dragInstance1.current = Draggable.create(dragTarget1.current, {
@@ -66,7 +107,7 @@ export default function CaseFileTwo() {
           </header>
           <div className="game-state">
             <p>Tove</p>
-            <LoadCoffee timer={timer}/>
+            <LoadCoffee setTimer={setTimer} timer={timer}/>
           </div>
         </div>
           <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
@@ -93,7 +134,9 @@ export default function CaseFileTwo() {
             </div>
           </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
-            <GrahamDialogue show={show} close={closeModalHandler} next={next} setNext={setNext} />
+            <GrahamDialogue show={show} close={closeModalHandler} count={count} setCount={setCount}>
+              {grabLines()}
+            </GrahamDialogue>
       </div>
     );
   }

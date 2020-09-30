@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import MainDialogue from './modal/MainDialogue'
-import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
 import '../css/MainMenu.css';
 
 
@@ -26,9 +24,8 @@ const [isOpen, setIsOpen] = useState(false);
             <h3>Detective {grabUser()}</h3>
             </div>
             <div className="modal-start">
-              <button className="talk-btn" onClick={() => setIsOpen(true)}>Talk to Graham</button>
-              <MainDialogue open={isOpen} onClose={() => setIsOpen(false)}>
-                Wowee
+              <button className="talk-btn" onClick={() => setIsOpen(true)}>Introduce Yourself</button>
+              <MainDialogue open={isOpen} setIsOpen={setIsOpen} onClose={() => setIsOpen(false)}>
               </MainDialogue>
             </div>
       </div>
