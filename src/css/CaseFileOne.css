@@ -2,6 +2,7 @@
   width: 100%;
   order: 2;
   height: 100vh;
+  overflow: hidden;
 }
 .winner{
   left: 400px; 
@@ -11,7 +12,7 @@
 .body-div {
   display: flex;
   flex-direction: column;
-  text-align: center;;
+  align-items: center;
 }
 
 .headertop {

@@ -1,6 +1,7 @@
 .case-three{
   width: 100%;
   order: 2;
+  overflow: hidden;
 }
 .body-div {
   margin-right: 50px;

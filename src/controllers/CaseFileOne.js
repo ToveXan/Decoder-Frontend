@@ -104,14 +104,12 @@ function CaseFileOne() {
     if(userAnswer === answer){
       alert("Now we're talkin'! You got it!")
       setTimer(timer + 0)
-      console.log(userAnswer)
-      console.log("That's not quite right....")
+    }else if (userAnswer !== answer) {
       setTimer(timer + 1)
     } else {
       console.log("somethin' aint right")
     }
   }
-
 
   const loadImage = () => {
     return <Layer>
