@@ -13,6 +13,9 @@ body {
   z-index: 1050;
 }
 
+button.btn {
+  font-family: 'Courier Prime', monospace;
+}
 
 .modal-header {
   background: #2c2c2c;
@@ -46,6 +49,17 @@ body {
 
 .modal-footer {
   display: flex;
+  float: right;
+}
+
+#cls-btn {
+  margin-left: 0;
+  background: none;
+  font-size: 20px;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .modal-footer button {

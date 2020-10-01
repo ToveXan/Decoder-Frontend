@@ -25,7 +25,7 @@ const [isOpen, setIsOpen] = useState(false);
               <button className="talk-btn" onClick={() => setIsOpen(true)}>Introduce Yourself</button>
               </div>
               <div className="graham-image">
-                <GrahamImage height={650}/>
+                <GrahamImage height={650} />
               </div>
               <MainDialogue open={isOpen} setIsOpen={setIsOpen} onClose={() => setIsOpen(false)}>
               </MainDialogue>

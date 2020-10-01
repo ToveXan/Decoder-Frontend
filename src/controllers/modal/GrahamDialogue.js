@@ -12,17 +12,16 @@ export default function GrahamDialogue({ show, close, count, setCount, children 
             }}
         >
             <div className="modal-header">
-                <p>Graham</p>
+                <p>Graham</p> <button id="cls-btn"
+                    onClick={close}>x</button>
             </div>
             <div className="modal-content">
                 <div className="modal-body">
                    {children}
                 </div>
                 <div className="modal-footer">
-                    <button className="btn" 
+                    <button className="btn" id="next-btn"
                     onClick={() => setCount(count+1)}>Next</button>
-                    <button className="btn" 
-                    onClick={close}> Close</button>
                 </div>
             </div>
         </div>

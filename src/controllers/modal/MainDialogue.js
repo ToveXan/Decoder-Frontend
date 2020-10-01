@@ -50,7 +50,8 @@ export default function MainDialogue({ open, onClose, setIsOpen }) {
             }}
         >
             <div className="main-header">
-                <p>Graham</p>
+                <p>Graham</p> <button id="cls-btn"
+                    onClick={closeModalHandler}>x</button>
             </div>
             <div className="main-content">
                 <div className="main-body">
@@ -59,8 +60,6 @@ export default function MainDialogue({ open, onClose, setIsOpen }) {
                 <div className="main-footer">
                     <button className="btn" 
                     onClick={() => setCount(count+1)}>Next</button>
-                    <button className="btn" 
-                    onClick={closeModalHandler}>Close</button>
                 </div>
             </div>
         </div>

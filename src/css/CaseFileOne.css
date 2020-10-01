@@ -42,13 +42,16 @@
 #clr-btn {
   margin: 5px;
 }
+ .test {
+   margin: 16px;
+ }
 
 .btn {
   border: none;
   background-color: #4d2e01;
   color: white;
   border-radius: 5px;
-  margin: 2px;
+  margin: 11px;
   padding: 0.5rem 1.8rem; 
   cursor: pointer;
   font-size: 1rem;

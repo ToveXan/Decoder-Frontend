@@ -1,46 +1,42 @@
 import React from 'react';
 import '../css/Signup.css';
-import { NavLink } from 'react-router-dom';
 
 
-class Signup extends React.Component{
-  render(){
+function Signup() {
   return (
-      <div className="Signup">
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <div className="Signup-field">
-              <label>Username</label>
-              <br/>
-              <input
-                name="username"
-                placeholder="username"
-              />
-              <br/>
-              <label>Password</label>
-              <br/>
-              <input
-                name="password"
-                placeholder="password"
-                />
-                <br/>
-              <button type="submit">
-              Signup
-              </button>
-            </div>
+    <div id="holder">
+    <div className="blur">
+        <div className="form-div">
+          <div className="login-field">
+            <h1>Signup</h1>
+            <img src="http://www.pngall.com/?p=43607" alt="" />
             <br/>
-          </form>
-          <NavLink to="/main">
-            Main Menu
-          </NavLink>
-          <p />
-          <NavLink to="/">
-            Title Menu
-          </NavLink>
-        </div>
+            <div className="user-div">
+            <label>Set Username</label>
+            <p />
+            <input
+              className="txt-signup"
+              name="username"
+              placeholder="username"
+            />
+            </div>
+            <div className="password-div">
+            <label>Set Password</label>
+            <p />
+            <input
+            className="txt-signup"
+              type="password"
+              placeholder="password"
+              />
+            </div>
+             <a id="fake-login" href="/">
+                 Signup
+                </a>
+          </div>
       </div>
-    );
-  }
+      </div>
+  </div>
+  )
 }
 
-export default Signup;
+export default Signup

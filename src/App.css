@@ -12,6 +12,10 @@
   font-family: 'Courier Prime', monospace;
 }
 
+button {
+  font-family: 'Courier Prime', monospace;
+}
+
 .file-div {
   display: flex;
   height: 100vh;
