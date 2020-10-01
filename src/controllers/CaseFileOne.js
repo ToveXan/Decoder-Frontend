@@ -114,8 +114,8 @@ function CaseFileOne() {
   const loadImage = () => {
     return <Layer>
       <Image 
-      x={20} 
-      y={20}
+      x={0} 
+      y={0}
       width={400}
       height={400}
       image={image} 
@@ -138,12 +138,12 @@ function CaseFileOne() {
             <LoadCoffee setTimer={setTimer} timer={timer}/>
           </div>
         </div>
-          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
+          <button className="btn" id="graham-btn" onClick={() => setShow(true)}>Talk To Graham</button>
         <div className="body-div">
           <div className="canvas1">
             <Stage 
-            width={500} 
-            height={500}
+            width={400} 
+            height={400}
             onMouseDown={handleMouseDown}
             onMousemove={handleMouseMove}
             onMouseup={handleMouseUp}
@@ -152,9 +152,9 @@ function CaseFileOne() {
                 <Rect
                   x={0}
                   y={0}
-                  width={500}
-                  height={500}
-                  fill="white"
+                  width={400}
+                  height={400}
+                  
                 />
               </Layer>
               {loadImage()}
@@ -164,16 +164,18 @@ function CaseFileOne() {
                     ))}
               </Layer>
             </Stage>
-          <button className="btn" onClick={deleteLine}>Clear</button>
+          <button className="btn" id="clr-btn" onClick={deleteLine}>Clear</button>
           </div>
             <div>
               <h3 className="test">rendezvous at midnight by the river</h3>
               <form id="answer-form" onSubmit={handleSubmit}>
-              <label>Answer</label>
-                <input 
-                  type="text" 
-                  onChange={e => setUserAnswer(e.target.value)} />
-                <button className="btn" type="submit" onClick={cancelInput}>Submit</button>
+              <input 
+                    className="txt-input"
+                    type="text" 
+                    placeholder="Answer"
+                    onChange={e => setUserAnswer(e.target.value)} />
+                    <p />
+                  <button className="btn" id="submit-btn" type="submit" onClick={cancelInput}>Submit</button>
               </form>
             </div>
         </div>

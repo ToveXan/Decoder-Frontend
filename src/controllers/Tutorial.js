@@ -71,10 +71,10 @@ function Tutorial() {
   const loadImageOne = () => {
     return <Layer>
       <Image 
-      x={20} 
-      y={20}
-      width={300}
-      height={460}
+      x={5} 
+      y={0}
+      width={250}
+      height={383}
       image={image1} 
       />
     </Layer>
@@ -83,9 +83,9 @@ function Tutorial() {
     return <Layer>
       <Image 
       x={350} 
-      y={22}
-      width={300}
-      height={453}
+      y={0}
+      width={250}
+      height={378}
       image={image2} 
       />
     </Layer>
@@ -96,6 +96,9 @@ function Tutorial() {
     const pos = e.target.getStage().getPointerPosition();
     setLines([...lines, [pos.x, pos.y]]);
   };
+  const cancelInput = () => { 
+    document.getElementById("answer-form").reset();
+  }
 
   const handleMouseMove = (e) => {
     // no drawing - skipping
@@ -137,57 +140,60 @@ function Tutorial() {
 
   return (
     <div className="tutorial">
-        <div>
+        <div className="headertop">
         <header>
-          <h1>Tutorial</h1>
-              <p>username</p>
+            <h1>Tutorial</h1>
           </header>
-          <LoadCoffee setTimer={setTimer} timer={timer}/>
+          <div className="game-state">
+            <p>Tove</p>
+            <LoadCoffee setTimer={setTimer} timer={timer}/>
+          </div>
         </div>
-          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
-        <div className="tut-canvas">
-          <Stage 
-          width={800} 
-          height={500}
-          onMouseDown={handleMouseDown}
-          onMousemove={handleMouseMove}
-          onMouseup={handleMouseUp}
-          >
-            <Layer>
-              <Rect
-                x={0}
-                y={0}
-                width={500}
-                height={500}
-                fill="white"
-              />
+          <button className="btn" id="graham-btn" onClick={() => setShow(true)}>Talk To Graham</button>
+        <div className="body-div">
+          <div className="tut-canvas">
+            <Stage 
+            width={655} 
+            height={387}
+            onMouseDown={handleMouseDown}
+            onMousemove={handleMouseMove}
+            onMouseup={handleMouseUp}
+            >
+              <Layer>
+                <Rect
+                  x={0}
+                  y={0}
+                  width={655}
+                  height={387}
+                  fill="white"
+                />
+              </Layer>
+              {loadImageOne()}
+              {loadImageTwo()}
+              <Layer>
+              {lines.map((line, i) => (
+                <Line key={i} id={i} points={line} stroke="red" />
+                  ))}
             </Layer>
-            {loadImageOne()}
-            {loadImageTwo()}
-            <Layer>
-            {lines.map((line, i) => (
-              <Line key={i} id={i} points={line} stroke="red" />
-                ))}
-          </Layer>
-          </Stage>
-          <button onClick={deleteLine}>Clear</button>
-        </div>
+            </Stage>
+          </div>
+          <button className="btn" id="clr-btn" onClick={deleteLine}>Clear</button>
         <div className="decode">
-          <h3>52:10:1 <br />
-              52:10:2 <br />
-              128:13:4 <br />
-              128:13:5 
+          <h3>52:10:1  128:13:4<br />
+              52:10:2 128:13:5<br />
             </h3>
           </div>
           <div className="tutorial-full">
-          <label>Answer</label>
-          <p />
-            <form onSubmit={handleSubmit}>
+            <form id="answer-form" onSubmit={handleSubmit}>
               <input 
-                type="text" 
-                onChange={e => setUserAnswer(e.target.value)} />
-              <button type="submit">Submit</button>
+                    className="txt-input"
+                    type="text" 
+                    placeholder="Answer"
+                    onChange={e => setUserAnswer(e.target.value)} />
+                    <p />
+                  <button className="btn" id="submit-btn" type="submit" onClick={cancelInput}>Submit</button>
             </form>
+          </div>
           </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }
             <GrahamDialogue show={show} close={closeModalHandler} count={count} setCount={setCount}>

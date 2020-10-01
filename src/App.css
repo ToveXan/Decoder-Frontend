@@ -9,6 +9,8 @@
 .file-div {
   display: flex;
   height: 100vh;
+  background: rgb(252, 252, 252);
+  color: rgb(53, 53, 53);
 }
 
 /* 

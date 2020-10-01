@@ -1,7 +1,64 @@
 .tutorial {
-  width: 700px;
-  display: inline-block;
-  margin: 0;
+  width: 100%;
+}
+.body-div {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.headertop {
+  border-bottom: double;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+}
+.game-state p {
+  align-self: flex-end;
+}
+.game-state {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-state p {
+  align-self: flex-end;
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.txt-input {
+  color: rgb(83, 83, 83);
+  width: 250px;
+  border: none;
+  height: 30px;
+  border-bottom: double; 
+  background: rgb(252, 252, 252);
+}
+
+#graham-btn {
+  margin-left: 50px;
+}
+
+#submit-btn {
+  width: 250px;
+}
+
+.canvas1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[class^="flaticon-coffee-cup"]:before, [class*=" flaticon-coffee-cup"]:before, [class^=" flaticon-coffee-cup"]:after, [class*=" flaticon-coffee-cup"]:after {
+
+  font-size: 40px;
   
+  }
+[class^="flaticon-coffee"]:before, [class*=" flaticon-coffee"]:before, [class^=" flaticon-coffee"]:after, [class*=" flaticon-coffee"]:after {
+
+  font-size: 40px;
+    
 }

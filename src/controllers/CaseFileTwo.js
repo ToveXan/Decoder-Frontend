@@ -3,7 +3,8 @@ import LoadCoffee from './LoadCoffee';
 import '../css/CaseFileTwo.css';
 import gsap from "gsap";
 import Draggable from "gsap/Draggable";
-import GrahamDialogue from './modal/GrahamDialogue'
+import GrahamDialogue from './modal/GrahamDialogue';
+
 
 gsap.registerPlugin(Draggable);
 
@@ -110,7 +111,7 @@ export default function CaseFileTwo() {
             <LoadCoffee setTimer={setTimer} timer={timer}/>
           </div>
         </div>
-          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
+          <button className="btn" id="graham-btn" onClick={() => setShow(true)}>Talk To Graham</button>
         <div className="body-div">
           <div className="draggable">
             <img className="top" src={'https://i.ibb.co/ZTqGTgc/caesar-middle-1-3.png'} ref={dragTarget2} alt="" />
@@ -124,12 +125,13 @@ export default function CaseFileTwo() {
           </div>
           <div className="case-two-full">
             <form id="answer-form" onSubmit={handleSubmit}>
-                <label>Answer</label>
-
                   <input 
+                    className="txt-input"
                     type="text" 
+                    placeholder="Answer"
                     onChange={e => setUserAnswer(e.target.value)} />
-                  <button className="btn" type="submit" onClick={cancelInput}>Submit</button>
+                    <p />
+                  <button className="btn" id="submit-btn" type="submit" onClick={cancelInput}>Submit</button>
                 </form>
             </div>
           </div>

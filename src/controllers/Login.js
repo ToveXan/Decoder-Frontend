@@ -61,7 +61,7 @@ class Login extends React.Component{
   render(){
   return (
       <div className="Login">
-          <div>
+          <div className="form-div">
           <form onSubmit={this.handleSubmit}>
           {
             this.state.error &&
@@ -70,24 +70,26 @@ class Login extends React.Component{
               {this.state.error}
             </h3>
           }
+      
             <div className="login-field">
-              <label>Username</label>
+
               <br/>
               <input
+                className="txt-input"
                 name="username"
                 placeholder="username"
                 value={this.state.username} onChange={this.handleUserChange} 
               />
               <br/>
-              <label>Password</label>
               <br/>
               <input
+              className="txt-input"
                 name="password"
                 placeholder="password"
                 value={this.state.password} onChange={this.handlePassChange}
                 />
                 <br/>
-                <input type="submit" value="Log In" data-test="submit" />
+                <input className="btn" type="submit" value="Log In" data-test="submit" />
             </div>
             <br/>
           </form>

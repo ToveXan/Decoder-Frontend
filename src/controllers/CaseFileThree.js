@@ -133,7 +133,7 @@ export default function CaseFileThree() {
             <LoadCoffee setTimer={setTimer} timer={timer}/>
           </div>
         </div>
-          <button className="btn" onClick={() => setShow(true)}>Talk To Graham</button>
+          <button className="btn" id="graham-btn" onClick={() => setShow(true)}>Talk To Graham</button>
         <div className="body-div">
             <div className="canvasThree">
               <Stage 
@@ -149,7 +149,6 @@ export default function CaseFileThree() {
                   y={0}
                   width={400}
                   height={400}
-                  fill="white"
                 />
               </Layer>
               {loadImage()}
@@ -159,18 +158,20 @@ export default function CaseFileThree() {
                     ))}
               </Layer>
             </Stage>
-          <button className="btn" onClick={deleteLine}>Clear</button>
+          <button className="btn" id="clr-btn" onClick={deleteLine}>Clear</button>
           </div>
           <div className="decode">
             <h3>OEQUBNAQBUVI OPUZKFAEPH IKBHCUY KFMDFQDVM</h3>
           </div>
             <div>
               <form id="answer-form" onSubmit={handleSubmit}>
-              <label>Answer</label>
               <input 
-                type="text" 
-                onChange={e => setUserAnswer(e.target.value)} />
-              <button className="btn" type="submit" onClick={cancelInput}>Submit</button>
+                    className="txt-input"
+                    type="text" 
+                    placeholder="Answer"
+                    onChange={e => setUserAnswer(e.target.value)} />
+                    <p />
+                  <button className="btn" id="submit-btn" type="submit" onClick={cancelInput}>Submit</button>
               </form>
             </div>
           { show ? <div onClick={closeModalHandler} className="back-drop"></div> : null }

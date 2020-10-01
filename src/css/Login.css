@@ -1,3 +1,11 @@
 .Login {
-  color: black;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  /* filter: blur(1.5px); */
+}
+
+.form-div {
+  z-index: 1050;
+  align-self: center;
 }
