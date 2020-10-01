@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import './fonts.css';
 import MainMenu from './controllers/MainMenu';
-import Login from './controllers/Login';
+import NewLogin from './controllers/NewLogin';
 import Signup from './controllers/Signup';
 import Title from './controllers/Title';
 import CaseFileOne from './controllers/CaseFileOne';
@@ -21,7 +21,7 @@ class App extends React.Component{
       <div className="App">
         <Switch>
             <Route exact path="/" component={Title} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={NewLogin} />
             <Route exact path="/signup" component={Signup} />
           <div className="file-div">
           <Navbar />

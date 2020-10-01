@@ -1,10 +1,9 @@
-import React from 'react';
-import '../css/Login.css';
+import React from 'react'
+import '../css/NewLogin.css';
 
-
-function Login(){ 
+function NewLogin() {
   return (
-      <div className="Login">
+    <div>
           <div className="form-div">
             <div className="login-field">
               <br/>
@@ -17,7 +16,7 @@ function Login(){
               <br/>
               <input
               className="txt-input"
-                name="password"
+                type="password"
                 placeholder="password"
                 />
                <a id="fake-login" href="/main">
@@ -25,8 +24,8 @@ function Login(){
                   </a>
             </div>
         </div>
-      </div>
-    );
+    </div>
+  )
 }
 
-export default Login;
+export default NewLogin

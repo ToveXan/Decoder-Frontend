@@ -7,7 +7,7 @@ class Signup extends React.Component{
   render(){
   return (
       <div className="Signup">
-          <div>
+        <div>
           <form onSubmit={this.handleSubmit}>
             <div className="Signup-field">
               <label>Username</label>

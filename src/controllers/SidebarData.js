@@ -2,7 +2,7 @@ import React from 'react';
 //import * as AiIcons from 'react-icons/ai';
 import * as SiIcons from 'react-icons/si';
 import * as RiIcons from 'react-icons/ri';
-import * as BiIcons from 'react-icons/bi';
+//import * as BiIcons from 'react-icons/bi';
 
 
 export const SidebarData = [
@@ -42,12 +42,12 @@ export const SidebarData = [
   //   icon: <AiIcons.AiOutlineQuestion />,
   //   cName: 'nav-text'
   // },
-  {
-    title: 'About',
-    path: '/about',
-    icon: <BiIcons.BiGlasses />,
-    cName: 'nav-text'
-  },
+  // {
+  //   title: 'About',
+  //   path: '/about',
+  //   icon: <BiIcons.BiGlasses />,
+  //   cName: 'nav-text'
+  // },
   {
     title: 'Logout',
     path: '/',
