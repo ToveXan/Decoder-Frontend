@@ -33,7 +33,8 @@ function CaseFileOne() {
 
   const fetchItems = async () => {
     const data = await fetch(
-      "http://localhost:4000/api/v1/graham_ones"
+      "https://double-cryptography-api.herokuapp.com/api/v1/graham_ones"
+      // "http://localhost:4000/api/v1/graham_ones"
     );
     const gLines = await data.json();
     setGLines(gLines);

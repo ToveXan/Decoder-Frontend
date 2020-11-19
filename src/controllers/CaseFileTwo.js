@@ -33,7 +33,8 @@ export default function CaseFileTwo() {
 
   const fetchItems = async () => {
     const data = await fetch(
-      "http://localhost:4000/api/v1/graham_twos"
+      "https://double-cryptography-api.herokuapp.com/api/v1/graham_twos"
+      // "http://localhost:4000/api/v1/graham_twos"
     );
     const gLines = await data.json();
     setGLines(gLines);

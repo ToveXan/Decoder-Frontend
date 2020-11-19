@@ -9,7 +9,7 @@ const [users, setUsers] = useState([]);
 const [isOpen, setIsOpen] = useState(false);
 
  useEffect(() => {
-    fetch('http://localhost:4000/api/v1/users')
+    fetch('https://double-cryptography-api.herokuapp.com/api/v1/users')
     .then(resp => resp.json())
     .then(users  => setUsers(users));
  }, []);

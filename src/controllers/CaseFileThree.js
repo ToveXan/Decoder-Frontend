@@ -29,7 +29,8 @@ export default function CaseFileThree() {
 
   const fetchItems = async () => {
     const data = await fetch(
-      "http://localhost:4000/api/v1/graham_threes"
+      "https://double-cryptography-api.herokuapp.com/api/v1/graham_threes"
+      // "http://localhost:4000/api/v1/graham_threes"
     );
     const gLines = await data.json();
     setGLines(gLines);
