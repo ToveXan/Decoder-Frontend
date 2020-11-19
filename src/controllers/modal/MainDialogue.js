@@ -11,7 +11,7 @@ export default function MainDialogue({ open, onClose, setIsOpen }) {
     
     const fetchItems = async () => {
         const data = await fetch(
-          "http://localhost:4000/api/v1/graham_mains"
+          "https://double-cryptography-api.herokuapp.com/api/v1/graham_mains"
         );
         const lines = await data.json();
         setLines(lines);
