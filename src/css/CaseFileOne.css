@@ -38,7 +38,9 @@
 .modal-body p {
   text-align: center;
 }
-
+.code-div img {
+  margin: 10px;
+}
 #clr-btn {
   margin: 5px;
 }

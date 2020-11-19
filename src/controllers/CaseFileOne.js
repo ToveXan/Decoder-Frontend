@@ -167,7 +167,7 @@ function CaseFileOne() {
             </Stage>
           <button className="btn" id="clr-btn" onClick={deleteLine}>Clear</button>
           </div>
-            <div>
+            <div className="code-div">
               <p><img src="https://i.ibb.co/QpqK2Dp/Screen-Shot-2020-11-19-at-4-56-19-PM.png"></img></p>
               <form id="answer-form" onSubmit={handleSubmit}>
               <input 
