@@ -18,7 +18,7 @@ function CaseFileOne() {
   const url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Pigpen_cipher_key.svg/1200px-Pigpen_cipher_key.svg.png'
   const [image] = useImage(url);
   const [show, setShow] = useState(false)
-  //let winner = <img className="winner" src="https://i.ibb.co/LJSfH3g/kisspng-stock-photography-royalty-free-stock-illustration-case-closed-transparent-png-5a781c5dacaed2.png"/>
+  // const winner = <img className="winner" src="https://i.ibb.co/LJSfH3g/kisspng-stock-photography-royalty-free-stock-illustration-case-closed-transparent-png-5a781c5dacaed2.png"/>
   const [gLines, setGLines] = useState([]);
   const [count, setCount] = useState(0);
 

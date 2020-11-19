@@ -12,8 +12,11 @@
   margin: 20px;
 }
 
+
 .graham-image svg {
-  transform: translate(500px,-10px);
+  position: fixed;
+  transform: translate(500px,0px);
+  margin-bottom: 0;
 }
 
 .btn {
