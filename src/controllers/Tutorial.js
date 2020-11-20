@@ -32,7 +32,7 @@ function Tutorial() {
 
   const fetchItems = async () => {
     const data = await fetch(
-      "http://localhost:4000/api/v1/graham_tutorials"
+      "https://double-cryptography-api.herokuapp.com/api/v1/graham_tutorials"
     );
     const gLines = await data.json();
     setGLines(gLines);
