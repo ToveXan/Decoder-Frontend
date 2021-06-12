@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Double Cryptography
 
-## Available Scripts
+Hello, welcome to my browser based game Double Cryptography!
+This was built using Ruby on Rails backend and a ReactJS frontend by Zoe Xanos
 
-In the project directory, you can run:
+### Work in Progress
 
-### `yarn start`
+There are still a few functional elements that need to be added. I'm currently working on being able to create a new user, save the user to the backend, and also save and store data on how many case files a user has solved.
+In the meantime, the login button will carry you to the main page under a default user. That way, anyone can still explore the game while I build out the rest of these components
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How The Game Works
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+When you pass through Login and head to the landing screen, talk to the NPC Graham. He will give you background information on why you are here and the goals of the game.
 
-### `yarn test`
+### Tutorial
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I would suggest going to the sidebar and playing the tutorial first. The frontend and backend are hosted through Heroku, sometimes a takes a moment for the tutorial images to load. Once loaded, you can talk to Grahama and he will lead you through solving the tutorial problem.
 
-### `yarn build`
+### Case Files
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Currently there are three case files available. Each case file has a phrase that needs to be decoded. The third file is especially difficult, I hope you enjoy the challenge!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Inspiration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is a hodge podge of different things I've loved since I was a little kid. I always wanted to be a detective and I grew up with a lot of black and white films and video games. This was my final project for Flatiron and I wanted to do something that meant a lot to me.
+I was surprised to see the positive reaction from friends and family when I unveiled Double Cryptography during the project showcase. 
+I want to keep working on it and experiment with new CSS styles and tools to make this feel like a full fledged game.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Thank you!
